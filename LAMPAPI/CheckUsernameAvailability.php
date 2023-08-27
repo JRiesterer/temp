@@ -9,7 +9,7 @@
 	}
 
 	else {
-		$stmt = $conn->prepare("SELECT * FROM Users WHERE login = ?");
+		$stmt = $conn->prepare("SELECT * FROM Users WHERE login = BINARY ?");
 		$stmt->bind_param("s", $inData["login"]);
 		$stmt->execute();
 		$result = $stmt->get_result();
