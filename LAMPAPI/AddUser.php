@@ -38,8 +38,8 @@
 		sendResultInfoAsJson($retValue);
 	}
 
-	function returnWithInfo( $searchResults ) {
-		$retValue = '{"error":""}';
+	function returnWithoutError() {
+        $retValue = '{"error":""}';
 		sendResultInfoAsJson($retValue);
-	}
+    }
 ?>
