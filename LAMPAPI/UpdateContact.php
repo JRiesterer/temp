@@ -6,7 +6,7 @@
 	$email = $inData["email"];
 	$fname = $inData["fname"];
 	$lname = $inData["lname"];
-	$ID = $inData["ID "];
+	$ID = $inData["ID"];
 
 	$conn = new mysqli("localhost", "access", "sqlsqlsql2", "db1");
 
