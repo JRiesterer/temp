@@ -8,7 +8,7 @@
 	$lname = $inData["lname"];
 	$ID = $inData["ID "];
 
-	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "COP4331");
+	$conn = new mysqli("localhost", "access", "sqlsqlsql2", "db1");
 
     if ( $conn->connect_error ) {
         returnWithError($conn->connect_error);
