@@ -13,7 +13,7 @@
 	}
 
 	else {
-		$stmt = $conn->prepare("SELECT ID, fname, lname FROM Users WHERE login = ? AND password = ?");
+		$stmt = $conn->prepare("SELECT ID, fname, lname FROM Users WHERE login = BINARY ? AND password = BINARY ?");
 		$stmt->bind_param("ss", $inData["login"], $inData["password"]);
 		$stmt->execute();
 		$result = $stmt->get_result();
