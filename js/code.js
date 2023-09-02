@@ -41,8 +41,8 @@ function doLogin()
 					return;
 				}
 		
-				firstName = jsonObject.firstName;
-				lastName = jsonObject.lastName;
+				firstName = jsonObject.fname;
+				lastName = jsonObject.lname;
 
 				saveCookie();
 	
