@@ -81,8 +81,22 @@
 }
 
 .Options:active {
+    border:0px;
+
+    width: 30%;
+    margin: 0px 0px;
+    padding: 5px;
+
+    display:inline-block;
+    vertical-align: middle;  
+    box-sizing: border-box;
+
+    font-size: 24px;
     background: #0178ff;
     color: white;
+
+    cursor: pointer;
+    
 }
 
 .Options:active:hover {
