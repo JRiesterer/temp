@@ -79,3 +79,13 @@
     background: #0178ff;
     color: white;
 }
+
+.Options:active {
+    background: #0178ff;
+    color: white;
+}
+
+.Options:active:hover {
+    background: #4501ff;
+    color: white;
+}

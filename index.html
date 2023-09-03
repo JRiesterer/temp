@@ -6,15 +6,16 @@
 	<script type="text/javascript" src="js/code.js"></script>
     <link href="css/styles.css" rel="stylesheet">
 </head>
-<body>
+
+<body onload="showLogin()">
 
 <h1 id="title">IcePekoe Contact Manager</h1>
 
 <div id="loginRegisterDiv">
 
 	<div id="controlDiv">
-		<button class="Options" id="loginOption">Login</button>
-		<button class="Options" id="registerOption">Register</button>
+		<button class="Options" id="loginOption" onclick="showLogin()">Login</button>
+		<button class="Options" id="registerOption" onclick="showRegister()">Register</button>
 	</div>
 
 	<div id="loginDiv">

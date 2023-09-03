@@ -97,3 +97,17 @@ function register() {
 	}
 
 }
+
+function showLogin() {
+	document.getElementById("loginOption").className = "Options:active";
+	document.getElementById("registerOption").className = "Options";
+	document.getElementById("registerDiv").style.display = "none";
+	document.getElementById("loginDiv").style.display = "block";
+}
+
+function showRegister() {
+	document.getElementById("loginOption").className = "Options";
+	document.getElementById("registerOption").className = "Options:active";
+	document.getElementById("registerDiv").style.display = "block";
+	document.getElementById("loginDiv").style.display = "none";
+}
