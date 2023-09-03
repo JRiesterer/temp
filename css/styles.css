@@ -17,6 +17,8 @@
 
 #controlDiv {
     border-bottom: 3px solid #0178ff;
+
+    width: auto;
 }
 
 .InputBox {
@@ -26,7 +28,7 @@
     border: 2px solid #0178ff;
 
     width: 100%;
-    padding: 20px;
+    padding: 10px;
     margin: 10px;
 
     box-sizing: border-box;
@@ -41,7 +43,7 @@
     border: 0px;
 
     width: 30%;
-    padding: 20px;
+    padding: 10px;
     margin: 10px;
     
     box-sizing: border-box;
@@ -56,4 +58,8 @@
 .Options {
     display:inline-block;
     vertical-align: middle;
+
+    border:2px solid #0178ff;
+    margin: 10px 20px;
+    padding: 10px;
 }
