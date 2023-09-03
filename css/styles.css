@@ -17,7 +17,6 @@
 
 #controlDiv {
     border-bottom: 3px solid #0178ff;
-
     width: auto;
 }
 
@@ -56,10 +55,18 @@
 }
 
 .Options {
-    display:inline-block;
-    vertical-align: middle;
-
     border:2px solid #0178ff;
-    margin: 10px 20px;
+
+    width: 50%;
+    margin: 10px 0px;
     padding: 10px;
+
+    display:inline-block;
+    vertical-align: middle;   
+
+    font-size: 24px;
+    background-color: aliceblue;
+    color: #0105ff;
+
+    cursor: pointer;
 }
