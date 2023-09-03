@@ -17,10 +17,7 @@
 
 #controlDiv {
     border-bottom: 3px solid #0178ff;
-    width: auto;
-
-    display:inline-block;
-    vertical-align: middle;   
+    width: auto; 
 }
 
 .InputBox {
@@ -64,8 +61,10 @@
     margin: 10px 0px;
     padding: 10px;
 
+    display:inline-block;
+    vertical-align: middle;  
     box-sizing: border-box;
-    
+
     font-size: 24px;
     background-color: aliceblue;
     color: #0105ff;
