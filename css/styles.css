@@ -5,7 +5,7 @@
     background-color: aliceblue;
     text-align: center;
 
-    max-width: 700px;
+    max-width: 500px;
     height: auto;
     
     margin: 0 auto 200px;
@@ -21,7 +21,7 @@
     outline: 0px;
     border: 2px solid #0178ff;
 
-    width: 70%;
+    width: 100%;
     padding: 20px;
     margin: 10px;
 
@@ -34,7 +34,7 @@
     outline: 0px;
     border: 0px;
 
-    width: 35%;
+    width: 30%;
     padding: 20px;
     margin: 10px;
     
