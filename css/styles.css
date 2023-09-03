@@ -17,7 +17,7 @@
 
 #controlDiv {
     border-bottom: 3px solid #0178ff;
-    width: auto; 
+    width: 100%; 
 }
 
 .InputBox {
