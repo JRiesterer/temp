@@ -57,11 +57,11 @@
 }
 
 .Options {
-    border:2px solid #0178ff;
+    border:0px;
 
-    width: 50%;
-    margin: 10px 0px;
-    padding: 10px;
+    width: 30%;
+    margin: 0px 0px;
+    padding: 5px;
 
     display:inline-block;
     vertical-align: middle;  
@@ -72,4 +72,8 @@
     color: #0105ff;
 
     cursor: pointer;
+}
+
+.Options:hover {
+    background: #0178ff;
 }
