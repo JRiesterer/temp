@@ -8,6 +8,9 @@
     max-width: 700px;
     height: 900px;
     
+    margin: 0 auto 200px;
+    padding: 50px;
+
     box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, .2) ;
 
 }
@@ -19,5 +22,5 @@
     outline-color: #0178ff;
 
     width: 70%;
-    
+
 }
