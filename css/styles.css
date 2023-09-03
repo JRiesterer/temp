@@ -57,7 +57,7 @@
     cursor: pointer;
 }
 
-.Options {
+.Unselected {
     border:0px;
 
     width: 30%;
@@ -75,12 +75,12 @@
     cursor: pointer;
 }
 
-.Options:hover {
+.Unselected:hover {
     background: #0178ff;
     color: white;
 }
 
-.Options:active {
+.Selected {
     border:0px;
 
     width: 30%;
@@ -99,7 +99,7 @@
     
 }
 
-.Options:active:hover {
+.Selected:hover {
     background: #4501ff;
     color: white;
 }
