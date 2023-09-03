@@ -15,6 +15,10 @@
 
 }
 
+#controlDiv {
+    border-bottom: 3px solid #0178ff;
+}
+
 .InputBox {
     
     border-radius: 15px;
@@ -41,10 +45,15 @@
     margin: 10px;
     
     box-sizing: border-box;
-    
+
     font-size: 18px;
     background-color: #0178ff;
     color: white;
 
     cursor: pointer;
+}
+
+.Options {
+    display:inline-block;
+    vertical-align: middle;
 }
