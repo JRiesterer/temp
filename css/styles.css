@@ -9,7 +9,7 @@
     height: auto;
     
     margin: 0 auto 200px;
-    padding: 50px;
+    padding: 10px 50px;
 
     box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, .2) ;
 
@@ -18,10 +18,29 @@
 .InputBox {
     
     border-radius: 15px;
-    outline-width: 0px;
+    outline: 0;
     border: 2px solid #0178ff;
 
     width: 70%;
     padding: 20px;
-    margin: 20px;
+    margin: 10px;
+
+    font-size: 16px;
+}
+
+.Button {
+
+    border-radius: 15;
+    outline: 0;
+    border: 0;
+
+    width: 35%;
+    padding: 20px;
+    margin: 10px;
+    
+    font-size: 18px;
+    background-color: #0178ff;
+    color: white;
+
+    cursor: pointer;
 }
