@@ -18,6 +18,7 @@
 #controlDiv {
     border-bottom: 3px solid #0178ff;
     width: 70%;
+    margin: 10px auto;
     display: flex;
     justify-content: space-between;
 }
