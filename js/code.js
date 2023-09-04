@@ -115,8 +115,10 @@ function isAvailable(login) {
 				let jsonObject = JSON.parse( xhr.responseText );
 
 				if (jsonObject.error == '') {
+					console.log("Available...");
 					return true;
 				} else {
+					console.log("Not Available...");
 					return false;
 				}
 
