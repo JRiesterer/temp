@@ -94,6 +94,7 @@
 			//Check availability
 			if (!isAvailable(newUser.value)) {
 				//isn't available
+				console.log("Making invalid...");
 				userAvailable.className = "invalid";
 				reqCounter++;
 			} else {
