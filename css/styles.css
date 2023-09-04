@@ -112,10 +112,10 @@
     color: white;
 }
 
-p.valid {
+.valid {
     color: green;
 }
 
-p.invalid {
+invalid {
     color: red;
 }
