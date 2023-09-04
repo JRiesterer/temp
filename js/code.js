@@ -99,8 +99,6 @@ function register() {
 }
 
 function isAvailable(login) {
-	
-	console.log(login);
 
 	let tmp = {login:login};
 	let jsonPayload = JSON.stringify(tmp);
@@ -117,10 +115,8 @@ function isAvailable(login) {
 				let jsonObject = JSON.parse( xhr.responseText );
 
 				if (jsonObject.error == '') {
-					console.log("User Available");
 					return true;
 				} else {
-					console.log("User not Available");
 					return false;
 				}
 
