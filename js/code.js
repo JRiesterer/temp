@@ -56,6 +56,11 @@ function doLogin() {
 }
 
 function register() {
+	if (document.getElementById("registerButton").className == "DisabledButton") {
+		document.getElementById("registerResult").innerHTML = "Please Meet Username and Password Criteria";
+		return;
+	}
+
 	userId = 0;
 	firstName = "";
 	lastName = "";
@@ -145,12 +150,10 @@ function showRegister() {
 }
 
 function disable(btn) {
-	//btn.disabled = true;
 	btn.className = "DisabledButton";
 }
 
 function enable(btn) {
-	//btn.disabled = false;
 	btn.className = "Button";
 }
 
