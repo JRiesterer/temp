@@ -74,31 +74,31 @@
 			//Check length
 			if (newUser.value.length < 3 || newUser.value.length > 20) {
 				//too short or too long
-				userLengthReq.style.class = "invalid";
+				userLengthReq.style.className = "invalid";
 				reqCounter++;
 			} else {
 				console.log("Valid user len");
-				userLengthReq.style.class = "valid";
+				userLengthReq.style.className = "valid";
 			}
 
 			//Check contains
 			if (!newUser.value.match(allowed)){
 				//has symbols that aren't letters or numbers
-				userContains.style.class = "invalid";
+				userContains.style.className = "invalid";
 				reqCounter++;
 			} else {
 				console.log("Valid user contents");
-				userContains.style.class = "valid";
+				userContains.style.className = "valid";
 			}
 
 			//Check availability
 			if (!isAvailable(newUser.value)) {
 				//isn't available
-				userAvailable.style.class = "invalid";
+				userAvailable.style.className = "invalid";
 				reqCounter++;
 			} else {
 				console.log("Valid user availability");
-				userAvailable.style.class = "valid";
+				userAvailable.style.className = "valid";
 			}
 
 			userReqsNotMet = reqCounter;
@@ -126,19 +126,19 @@
 			//Check length
 			if (newPassword.value.length < 3 || newPassword.value.length > 20) {
 				//too short or too long
-				passwordLengthReq.style.class = "invalid";
+				passwordLengthReq.style.className = "invalid";
 				reqCounter++;
 			} else {
-				passwordLengthReq.style.class = "valid";
+				passwordLengthReq.style.className = "valid";
 			}
 
 			//Check contains
 			if (!newPassword.value.match(allowed)){
 				//has symbols that aren't letters or numbers
-				passwordContains.style.class = "invalid";
+				passwordContains.style.className = "invalid";
 				reqCounter++;
 			} else {
-				passwordContains.style.class = "valid";
+				passwordContains.style.className = "valid";
 			}
 
 			passwordReqsNotMet = reqCounter;
