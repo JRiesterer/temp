@@ -74,31 +74,31 @@
 			//Check length
 			if (newUser.value.length < 3 || newUser.value.length > 20) {
 				//too short or too long
-				userLengthReq.style.className = "invalid";
+				userLengthReq.className = "invalid";
 				reqCounter++;
 			} else {
 				console.log("Valid user len");
-				userLengthReq.style.className = "valid";
+				userLengthReq.className = "valid";
 			}
 
 			//Check contains
 			if (!newUser.value.match(allowed)){
 				//has symbols that aren't letters or numbers
-				userContains.style.className = "invalid";
+				userContains.className = "invalid";
 				reqCounter++;
 			} else {
 				console.log("Valid user contents");
-				userContains.style.className = "valid";
+				userContains.className = "valid";
 			}
 
 			//Check availability
 			if (!isAvailable(newUser.value)) {
 				//isn't available
-				userAvailable.style.className = "invalid";
+				userAvailable.className = "invalid";
 				reqCounter++;
 			} else {
 				console.log("Valid user availability");
-				userAvailable.style.className = "valid";
+				userAvailable.className = "valid";
 			}
 
 			userReqsNotMet = reqCounter;
@@ -108,7 +108,7 @@
 		//password validation
 		let newPassword = document.getElementById("newPassword");
 		let passwordRequirementsDiv = document.getElementById("passwordRequirementsDiv");
-		let passwordLegthReq = document.getElementById("passwordLengthReq");
+		let passwordLengthReq = document.getElementById("passwordLengthReq");
 		let passwordContains = document.getElementById("passwordContains");
 
 		newPassword.onfocus = function () {
@@ -126,19 +126,19 @@
 			//Check length
 			if (newPassword.value.length < 3 || newPassword.value.length > 20) {
 				//too short or too long
-				passwordLengthReq.style.className = "invalid";
+				passwordLengthReq.className = "invalid";
 				reqCounter++;
 			} else {
-				passwordLengthReq.style.className = "valid";
+				passwordLengthReq.className = "valid";
 			}
 
 			//Check contains
 			if (!newPassword.value.match(allowed)){
 				//has symbols that aren't letters or numbers
-				passwordContains.style.className = "invalid";
+				passwordContains.className = "invalid";
 				reqCounter++;
 			} else {
-				passwordContains.style.className = "valid";
+				passwordContains.className = "valid";
 			}
 
 			passwordReqsNotMet = reqCounter;
