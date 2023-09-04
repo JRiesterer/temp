@@ -65,6 +65,30 @@
     cursor: pointer;
 }
 
+.Button:hover {
+    background-color: #4501ff;
+}
+
+.DisabledButton {
+    
+    border-radius: 15px;
+    outline: 0px;
+    border: 0px;
+
+    width: 30%;
+    padding: 10px;
+    margin: 10px;
+    
+    box-sizing: border-box;
+
+    font-size: 18px;
+    background-color: #696969;
+    color: white;
+
+    cursor: pointer;
+}
+
+
 .Unselected {
     border:0px;
 
@@ -113,9 +137,9 @@
 }
 
 .valid {
-    color: green;
+    color: rgb(0, 255, 0);
 }
 
 .invalid {
-    color: red;
+    color: rgb(255, 4, 4);
 }

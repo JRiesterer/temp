@@ -39,7 +39,7 @@
 			<input class="InputBox" type="password" id="newPassword" placeholder="Password"/><br />
 			
 			<div id="passwordRequirementsDiv">
-				<p class="invalid" id="passwordLegthReq">Password length between 3 and 20 characters</p>
+				<p class="invalid" id="passwordLengthReq">Password length between 3 and 20 characters</p>
 				<p class="invalid" id="passwordContains">Password contains only letters, numbers, and, special characters</p>
 			</div>
 			
@@ -113,7 +113,7 @@
 		}
 
 		newPassword.onkeyup = function () {
-			var allowed = /[0-9A-Za-z!@#$%^&*]/g;
+			var allowed = /^[0-9A-Za-z!@#$%^&*]*$/;
 			var reqCounter = 0;
 
 			//Check length
@@ -126,7 +126,7 @@
 			}
 
 			//Check contains
-			if (!newPassword.value.match(allowed)){
+			if (!(allowed.test(newPassword.value))){
 				//has symbols that aren't letters or numbers
 				passwordContains.className = "invalid";
 				reqCounter++;
@@ -141,10 +141,10 @@
 		function checkButtonState() {
 			if (userReqsNotMet + passwordReqsNotMet != 0) {
 				//Requirements unmet, button is disabled
-				document.getElementById("registerButton").disabled = true;
+				disable(document.getElementById("registerButton"));
 			} else {
 				//Requirements met, allow submission
-				document.getElementById("registerButton").disabled = false;
+				ensable(document.getElementById("registerButton"));
 			}
 		}
 

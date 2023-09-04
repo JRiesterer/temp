@@ -130,11 +130,6 @@ function isAvailable(login, userAvailable) {
 	}
 }
 
-function setup() {
-	showLogin();
-	document.getElementById("registerButton").disabled = true;
-}
-
 function showLogin() {
 	document.getElementById("loginOption").className = "Selected";
 	document.getElementById("registerOption").className = "Unselected";
@@ -147,4 +142,19 @@ function showRegister() {
 	document.getElementById("registerOption").className = "Selected";
 	document.getElementById("registerDiv").style.display = "block";
 	document.getElementById("loginDiv").style.display = "none";
+}
+
+function disable(btn) {
+	btn.disabled = true;
+	btn.className = "DisabledButton";
+}
+
+function enable(btn) {
+	btn.disabled = false;
+	btn.className = "Button";
+}
+
+function setup() {
+	showLogin();
+	disable(document.getElementById("registerButton"));
 }
