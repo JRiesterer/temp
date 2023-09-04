@@ -145,12 +145,12 @@ function showRegister() {
 }
 
 function disable(btn) {
-	btn.disabled = true;
+	//btn.disabled = true;
 	btn.className = "DisabledButton";
 }
 
 function enable(btn) {
-	btn.disabled = false;
+	//btn.disabled = false;
 	btn.className = "Button";
 }
 
