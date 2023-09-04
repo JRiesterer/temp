@@ -98,6 +98,44 @@ function register() {
 
 }
 
+function isAvailable(login) {
+	
+	let tmp = {login:login};
+	let jsonPayload = JSON.stringify(tmp);
+	
+	let url = urlBase + '/CheckUsernameAvailability.' + extension;
+
+	let xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	
+	try	{
+		xhr.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				let jsonObject = JSON.parse( xhr.responseText );
+
+				if (jsonObject.error != '') {
+					return false;
+				} else {
+					return true;
+				}
+
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+
+	catch(err) {
+		return false;
+	}
+
+}
+
+function setupPage() {
+	showLogin();
+	document.getElementById("registerButton").disabled = true;
+}
+
 function showLogin() {
 	document.getElementById("loginOption").className = "Selected";
 	document.getElementById("registerOption").className = "Unselected";

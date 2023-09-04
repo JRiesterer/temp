@@ -7,35 +7,152 @@
     <link href="css/styles.css" rel="stylesheet">
 </head>
 
-<body onload="showLogin()">
+<body onload="setupPage()">
 
-<h1 id="title">IcePekoe Contact Manager</h1>
+	<h1 id="title">IcePekoe Contact Manager</h1>
 
-<div id="loginRegisterDiv">
+	<div id="loginRegisterDiv">
 
-	<div id="controlDiv">
-		<button class="Selected" id="loginOption" onclick="showLogin()">Login</button>
-		<button class="Unselected" id="registerOption" onclick="showRegister()">Register</button>
+		<div id="controlDiv">
+			<button class="Selected" id="loginOption" onclick="showLogin()">Login</button>
+			<button class="Unselected" id="registerOption" onclick="showRegister()">Register</button>
+		</div>
+
+		<div id="loginDiv">
+			<input class="InputBox" type="text" id="user" placeholder="Username" /><br />
+			<input class="InputBox" type="password" id="password" placeholder="Password"/><br />
+			<button type="button" id="loginButton" class="Button" onclick="doLogin();">Login</button>
+			<p id="loginResult"></p>
+		</div>
+
+		<div id="registerDiv">
+			<input class="InputBox" type="text" id="fname" placeholder="First Name" /><br />
+			<input class="InputBox" type="text" id="lname" placeholder="Last Name"/><br />
+			<input class="InputBox" type="text" id="newUser" placeholder="Username" /><br />
+
+			<div id="usernameRequirementsDiv">
+				<p class="invalid" id="userLengthReq">Username length between 3 and 20 characters</p>
+				<p class="invalid" id="userContains">Username contains only letters and numbers</p>
+				<p class="invalid" id="userAvailable">Username available</p>
+			</div>
+
+			<input class="InputBox" type="password" id="newPassword" placeholder="Password"/><br />
+			
+			<div id="passwordRequirementsDiv">
+				<p class="invalid" id="passwordLegthReq">Password length between 3 and 20 characters</p>
+				<p class="invalid" id="passwordContains">Password contains only letters, numbers, and, special characters</p>
+			</div>
+			
+			<button type="button" id="registerButton" class="Button" onclick="register();">Sign Up</button>
+			<p id="registerResult"></p>
+		</div>
 	</div>
 
-	<div id="loginDiv">
-		<input class="InputBox" type="text" id="user" placeholder="Username" /><br />
-		<input class="InputBox" type="password" id="password" placeholder="Password"/><br />
-		<button type="button" id="loginButton" class="Button" onclick="doLogin();">Login</button>
-		<p id="loginResult"></p>
-	</div>
+	<script>
+		var userReqsNotMet = 3;
+		var passwordReqsNotMet = 2;
 
-	<div id="registerDiv">
-		<input class="InputBox" type="text" id="fname" placeholder="First Name" /><br />
-		<input class="InputBox" type="text" id="lname" placeholder="Last Name"/><br />
-		<input class="InputBox" type="text" id="newUser" placeholder="Username" /><br />
-		<p></p>
-		<input class="InputBox" type="password" id="newPassword" placeholder="Password"/><br />
-		<p></p>
-		<button type="button" id="registerButton" class="Button" onclick="register();">Sign Up</button>
-		<p id="registerResult"></p>
-	</div>
-</div>
+		//Username validation
+		let newUser = document.getElementById("newUser");
+		let usernameRequirementsDiv = document.getElementById("usernameRequirementsDiv");
+		let userLengthReq = document.getElementById("userLengthReq");
+		let userContains = document.getElementById("userContains");
+		let userAvailable = document.getElementById("userAvailable");
+
+		newUser.onfocus = function () {
+			usernameRequirementsDiv.style.display = block;
+		}
+
+		newUser.onblur = function () {
+			usernameRequirementsDiv.style.display = none;
+		}
+
+		newUser.onkeypress = function () {
+			var allowed = /[0-9A-Za-z]/g;
+			var reqCounter = 0;
+
+			//Check length
+			if (newUser.value.length < 3 || newUser.value.length > 20) {
+				//too short or too long
+				userLengthReq.style.class = "invalid";
+				reqCounter++;
+			} else {
+				userLengthReq.style.class = "valid";
+			}
+
+			//Check contains
+			if (!newUser.value.match(allowed)){
+				//has symbols that aren't letters or numbers
+				userContains.style.class = "invalid";
+				reqCounter++;
+			} else {
+				userContains.style.class = "valid";
+			}
+
+			//Check availability
+			if (!isAvailable(newUser.value)) {
+				//isn't available
+				userAvailable.style.class = "invalid";
+				reqCounter++;
+			} else {
+				userAvailable.style.class = "valid";
+			}
+
+			userReqsNotMet = reqCounter;
+			checkButtonState();
+		}
+
+		//password validation
+		let newPassword = document.getElementById("newPassword");
+		let passwordRequirementsDiv = document.getElementById("passwordRequirmentsDiv");
+		let passwordLegthReq = document.getElementById("passwordLengthReq");
+		let passwordContains = document.getElementById("passwordContains");
+
+		newPassword.onfocus = function () {
+			passwordRequirementsDiv.style.display = block;
+		}
+
+		newPassword.onblur = function () {
+			passwordRequirementsDiv.style.display = none;
+		}
+
+		newPassword.onkeypress = function () {
+			var allowed = /[0-9A-Za-z!@#$%^&*]/g;
+			var reqCounter = 0;
+
+			//Check length
+			if (newPassword.value.length < 3 || newPassword.value.length > 20) {
+				//too short or too long
+				passwordLengthReq.style.class = "invalid";
+				reqCounter++;
+			} else {
+				passwordLengthReq.style.class = "valid";
+			}
+
+			//Check contains
+			if (!newPassword.value.match(allowed)){
+				//has symbols that aren't letters or numbers
+				passwordContains.style.class = "invalid";
+				reqCounter++;
+			} else {
+				passwordContains.style.class = "valid";
+			}
+
+			passwordReqsNotMet = reqCounter;
+			checkButtonState();
+		}
+
+		function checkButtonState() {
+			if (userReqsNotMet + passwordReqsNotMet != 0) {
+				//Requirements unmet, button is disabled
+				document.getElementById("registerButton").disabled = true;
+			} else {
+				//Requirements met, allow submission
+				document.getElementById("registerButton").disabled = false;
+			}
+		}
+
+	</script>
 
 </body>
 </html>
