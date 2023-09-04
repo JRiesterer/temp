@@ -52,7 +52,7 @@
 		var userReqsNotMet = 3;
 		var passwordReqsNotMet = 2;
 
-		var available = true;
+		var available = {value: false};
 
 		//Username validation
 		let newUser = document.getElementById("newUser");
@@ -73,6 +73,8 @@
 			var allowed = /^[0-9A-Za-z]*$/;
 			var reqCounter = 0;
 
+			//Run availability check pre-emptively.
+			isAvailable(newUser.value, available);
 			//Check length
 			if (newUser.value.length < 3 || newUser.value.length > 20) {
 				//too short or too long
@@ -93,10 +95,8 @@
 				userContains.className = "valid";
 			}
 
-			console.log(isAvailable(newUser.value), available);
-
 			//Check availability
-			if (!available) {
+			if (!(available.value)) {
 				//isn't available
 				console.log("Making invalid...");
 				userAvailable.className = "invalid";

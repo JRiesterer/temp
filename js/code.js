@@ -115,9 +115,9 @@ function isAvailable(login, available) {
 				let jsonObject = JSON.parse( xhr.responseText );
 
 				if (jsonObject.error == '') {
-					available = true;
+					available.value = true;
 				} else {
-					available = false;
+					available.value = false;
 				}
 
 			}
