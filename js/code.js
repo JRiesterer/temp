@@ -98,7 +98,7 @@ function register() {
 
 }
 
-function isAvailable(login, available) {
+function isAvailable(login, userAvailable) {
 
 	let tmp = {login:login};
 	let jsonPayload = JSON.stringify(tmp);
@@ -115,9 +115,9 @@ function isAvailable(login, available) {
 				let jsonObject = JSON.parse( xhr.responseText );
 
 				if (jsonObject.error == '') {
-					available.value = true;
+					userAvailable.className = "valid";
 				} else {
-					available.value = false;
+					userAvailable.className = "invalid";
 				}
 
 			}
