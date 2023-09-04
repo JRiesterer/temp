@@ -68,7 +68,7 @@
 		}
 
 		newUser.onkeyup = function () {
-			var allowed = /[0-9A-Za-z]/g;
+			var allowed = /^[0-9A-Za-z]*$/;
 			var reqCounter = 0;
 
 			//Check length
@@ -82,7 +82,7 @@
 			}
 
 			//Check contains
-			if (!newUser.value.match(allowed)){
+			if (!(allowed.test(newUser.value))){
 				//has symbols that aren't letters or numbers
 				userContains.className = "invalid";
 				reqCounter++;
