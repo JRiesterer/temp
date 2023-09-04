@@ -131,7 +131,7 @@ function isAvailable(login) {
 
 }
 
-function setupPage() {
+function setup() {
 	showLogin();
 	document.getElementById("registerButton").disabled = true;
 }
