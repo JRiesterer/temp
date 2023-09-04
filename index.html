@@ -67,7 +67,7 @@
 			usernameRequirementsDiv.style.display = "none";
 		}
 
-		newUser.onkeypress = function () {
+		newUser.onkeyup = function () {
 			var allowed = /[0-9A-Za-z]/g;
 			var reqCounter = 0;
 
@@ -116,7 +116,7 @@
 			passwordRequirementsDiv.style.display = "none";
 		}
 
-		newPassword.onkeypress = function () {
+		newPassword.onkeyup = function () {
 			var allowed = /[0-9A-Za-z!@#$%^&*]/g;
 			var reqCounter = 0;
 
