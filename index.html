@@ -68,9 +68,6 @@
 		}
 
 		newUser.onkeyup = function () {
-
-			console.log("running onkeyup...");
-
 			var allowed = /[0-9A-Za-z]/g;
 			var reqCounter = 0;
 
@@ -80,6 +77,7 @@
 				userLengthReq.style.class = "invalid";
 				reqCounter++;
 			} else {
+				console.log("Valid user len");
 				userLengthReq.style.class = "valid";
 			}
 
@@ -89,6 +87,7 @@
 				userContains.style.class = "invalid";
 				reqCounter++;
 			} else {
+				console.log("Valid user contents");
 				userContains.style.class = "valid";
 			}
 
@@ -98,6 +97,7 @@
 				userAvailable.style.class = "invalid";
 				reqCounter++;
 			} else {
+				console.log("Valid user availability");
 				userAvailable.style.class = "valid";
 			}
 
