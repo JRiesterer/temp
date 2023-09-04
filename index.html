@@ -52,6 +52,8 @@
 		var userReqsNotMet = 3;
 		var passwordReqsNotMet = 2;
 
+		var userAvailable = true;
+
 		//Username validation
 		let newUser = document.getElementById("newUser");
 		let usernameRequirementsDiv = document.getElementById("usernameRequirementsDiv");
@@ -91,10 +93,10 @@
 				userContains.className = "valid";
 			}
 
-			console.log(isAvailable(newUser.value));
+			console.log(isAvailable(newUser.value), userAvailable);
 
 			//Check availability
-			if (!isAvailable(newUser.value)) {
+			if (!userAvailable) {
 				//isn't available
 				console.log("Making invalid...");
 				userAvailable.className = "invalid";

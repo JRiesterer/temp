@@ -98,7 +98,7 @@ function register() {
 
 }
 
-function isAvailable(login) {
+function isAvailable(login, available) {
 
 	let tmp = {login:login};
 	let jsonPayload = JSON.stringify(tmp);
@@ -115,11 +115,9 @@ function isAvailable(login) {
 				let jsonObject = JSON.parse( xhr.responseText );
 
 				if (jsonObject.error == '') {
-					console.log("Available...");
-					return true;
+					available = true;
 				} else {
-					console.log("Not Available...");
-					return false;
+					available = false;
 				}
 
 			}
@@ -129,9 +127,7 @@ function isAvailable(login) {
 
 	catch(err) {
 		console.log("Error occurred")
-		return false;
 	}
-
 }
 
 function setup() {
