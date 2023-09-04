@@ -100,6 +100,8 @@ function register() {
 
 function isAvailable(login) {
 	
+	console.log(login);
+
 	let tmp = {login:login};
 	let jsonPayload = JSON.stringify(tmp);
 	
@@ -114,10 +116,12 @@ function isAvailable(login) {
 			if (this.readyState == 4 && this.status == 200) {
 				let jsonObject = JSON.parse( xhr.responseText );
 
-				if (jsonObject.error != '') {
-					return false;
-				} else {
+				if (jsonObject.error == '') {
+					console.log("User Available");
 					return true;
+				} else {
+					console.log("User not Available");
+					return false;
 				}
 
 			}
@@ -126,6 +130,7 @@ function isAvailable(login) {
 	}
 
 	catch(err) {
+		console.log("Error occurred")
 		return false;
 	}
 
