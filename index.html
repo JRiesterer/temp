@@ -51,6 +51,32 @@
 	<script>
 		var userReqsNotMet = 3;
 		var passwordReqsNotMet = 2;
+		var lnameReqNotMet = 1;
+		var fnameReqNotMet = 1;
+
+		//fname and lname check (just that there's something in them)
+		let fname = document.getElementById("fname");
+		let lname = document.getElementById("lname");
+
+		lname.onkeyup = function () {
+			if (lname.value.length == 0) {
+				lnameReqNotMet = 1;
+			} else {
+				lnameReqNotMet = 0;
+			}
+
+			checkReqs(lname, lnameReqNotMet);
+		}
+
+		fname.onkeyup = function () {
+			if (fname.value.length == 0) {
+				fnameReqNotMet = 1;
+			} else {
+				fnameReqNotMet = 0;
+			}
+
+			checkReqs(fname, fnameReqNotMet);
+		}
 
 		//Username validation
 		let newUser = document.getElementById("newUser");
@@ -94,7 +120,9 @@
 			//Check availability
 			isAvailable(newUser.value, userAvailable);
 
+			//Check reqs and whether or not to enable submissions
 			userReqsNotMet = reqCounter;
+			checkReqs(newUser, userReqsNotMet);
 			checkButtonState();
 		}
 
@@ -134,17 +162,27 @@
 				passwordContains.className = "valid";
 			}
 
+			//Check reqs and whether or not to enable submissions
 			passwordReqsNotMet = reqCounter;
+			checkReqs(newPassword, passwordReqsNotMet);
 			checkButtonState();
 		}
 
 		function checkButtonState() {
-			if (userReqsNotMet + passwordReqsNotMet != 0) {
+			if (userReqsNotMet + passwordReqsNotMet + lnameReqNotMet + fnameReqNotMet != 0) {
 				//Requirements unmet, button is disabled
 				disable(document.getElementById("registerButton"));
 			} else {
 				//Requirements met, allow submission
 				enable(document.getElementById("registerButton"));
+			}
+		}
+
+		function checkReqs(field, reqsNotMet) {
+			if (reqsNotMet != 0) {
+				field.style.borderColor = "rgb(255, 0, 0)";
+			} else {
+				field.style.borderColor = "rgb(0, 255, 0)";
 			}
 		}
 
