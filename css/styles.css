@@ -92,7 +92,7 @@
 .Unselected {
     border:0px;
 
-    width: 30%;
+    flex: 0 1 auto;
     margin: 0px 0px;
     padding: 5px;
 
@@ -115,7 +115,7 @@
 .Selected {
     border:0px;
 
-    width: 30%;
+    flex: 0 1 auto;
     margin: 0px 0px;
     padding: 5px;
 
