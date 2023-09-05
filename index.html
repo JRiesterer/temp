@@ -131,7 +131,6 @@
 				//Check all reqs and whether or not to enable submissions
 				userReqsNotMet = reqCounter;
 				checkReqs(newUser, userReqsNotMet);
-				checkButtonState();
 			}).catch((err) => {
 				console.log("Promise error...");
 			});
@@ -176,7 +175,6 @@
 			//Check reqs and whether or not to enable submissions
 			passwordReqsNotMet = reqCounter;
 			checkReqs(newPassword, passwordReqsNotMet);
-			checkButtonState();
 		}
 
 		function checkButtonState() {
@@ -195,6 +193,9 @@
 			} else {
 				field.style.borderColor = "rgb(0, 255, 0)";
 			}
+
+			//After checking the reqs, check if the button should be enabled or disabled
+			checkButtonState();
 		}
 
 	</script>
