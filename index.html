@@ -29,6 +29,9 @@
 			<input class="InputBox" type="text" id="fname" placeholder="First Name" /><br />
 			<input class="InputBox" type="text" id="lname" placeholder="Last Name"/><br />
 			<input class="InputBox" type="text" id="newUser" placeholder="Username" /><br />
+			<input class="InputBox" type="password" id="newPassword" placeholder="Password"/><br />
+			
+			<button type="button" id="registerButton" class="Button" onclick="register();">Sign Up</button>
 
 			<div id="usernameRequirementsDiv">
 				<p class="invalid" id="userLengthReq">Username length between 3 and 20 characters</p>
@@ -36,14 +39,11 @@
 				<p class="invalid" id="userAvailable">Username available</p>
 			</div>
 
-			<input class="InputBox" type="password" id="newPassword" placeholder="Password"/><br />
-			
 			<div id="passwordRequirementsDiv">
 				<p class="invalid" id="passwordLengthReq">Password length between 3 and 20 characters</p>
 				<p class="invalid" id="passwordContains">Password contains only letters, numbers, and, special characters</p>
 			</div>
-			
-			<button type="button" id="registerButton" class="Button" onclick="register();">Sign Up</button>
+
 			<p id="registerResult"></p>
 		</div>
 	</div>
