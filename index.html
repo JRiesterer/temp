@@ -118,12 +118,23 @@
 			}
 
 			//Check availability
-			isAvailable(newUser.value, userAvailable);
+			isAvailable(newUser.value, userAvailable).then((available) => {
+				
+				//Check response
+				if (!available) {
+					reqCounter++;
+					userAvailable.className = "invalid";
+				} else {
+					userAvailable.className = "valid";
+				}
 
-			//Check reqs and whether or not to enable submissions
-			userReqsNotMet = reqCounter;
-			checkReqs(newUser, userReqsNotMet);
-			checkButtonState();
+				//Check all reqs and whether or not to enable submissions
+				userReqsNotMet = reqCounter;
+				checkReqs(newUser, userReqsNotMet);
+				checkButtonState();
+			}).catch((err) => {
+				console.log("Promise error...");
+			});
 		}
 
 		//password validation

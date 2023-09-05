@@ -104,35 +104,37 @@ function register() {
 }
 
 function isAvailable(login, userAvailable) {
+	return new Promise((resolve, reject) => {
+		let tmp = {login:login};
+		let jsonPayload = JSON.stringify(tmp);
+		
+		let url = urlBase + '/CheckUsernameAvailability.' + extension;
 
-	let tmp = {login:login};
-	let jsonPayload = JSON.stringify(tmp);
-	
-	let url = urlBase + '/CheckUsernameAvailability.' + extension;
+		let xhr = new XMLHttpRequest();
+		xhr.open("POST", url, true);
+		xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+		
+		try	{
+			xhr.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					let jsonObject = JSON.parse( xhr.responseText );
 
-	let xhr = new XMLHttpRequest();
-	xhr.open("POST", url, true);
-	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-	
-	try	{
-		xhr.onreadystatechange = function() {
-			if (this.readyState == 4 && this.status == 200) {
-				let jsonObject = JSON.parse( xhr.responseText );
+					if (jsonObject.error == '') {
+						resolve(true);
+					} else {
+						resolve(false);
+					}
 
-				if (jsonObject.error == '') {
-					userAvailable.className = "valid";
-				} else {
-					userAvailable.className = "invalid";
 				}
+			};
+			xhr.send(jsonPayload);
+		}
 
-			}
-		};
-		xhr.send(jsonPayload);
-	}
-
-	catch(err) {
-		console.log("Error occurred")
-	}
+		catch(err) {
+			console.log("Error occurred")
+			reject(undefined);
+		}
+	});
 }
 
 function showLogin() {
