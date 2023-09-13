@@ -40,7 +40,7 @@
 	}
 
     function returnWithoutError() {
-        $retValue = '{"error":"All Clear"}';
+        $retValue = '{"error":""}';
 		sendResultInfoAsJson($retValue);
     }
 ?>
